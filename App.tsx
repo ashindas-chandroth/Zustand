@@ -14,8 +14,10 @@ const App = () => {
   const renderItem = ({ item }:{item:User}) => {
     return (
        <View style={styles.cardStyle}>
-          <Text>{item.name}</Text>
-          <Image height={25} width={25} source={{uri:"https://fastly.picsum.photos/id/64/4326/2884.jpg?hmac=9_SzX666YRpR_fOyYStXpfSiJ_edO3ghlSRnH2w09Kg"}} style={{objectFit:'cover'}} />
+          
+          <Image height={45} width={45} style={styles.imageStyle} source={{uri:"https://raw.githubusercontent.com/ashindas-chandroth/Database/main/premium_photo-1671656349322-41de944d259b.jpg"}}/>
+          <Text style={styles.name}>{item.name}</Text>
+          <Text style={styles.email}>{item.email}</Text>
        </View>
     )
   }
@@ -24,7 +26,7 @@ const App = () => {
       {
         loading ?
           (
-            <ActivityIndicator size='large' color="orange" />
+            <ActivityIndicator size='large' color="blue" />
           ) : error ? (
             <Text>{error}</Text>
           ) :
@@ -42,7 +44,11 @@ const styles = StyleSheet.create({
   cardStyle:{
     backgroundColor:"#f9f9fc",
     borderRadius:10,
-    flexDirection:"column"
+    flexDirection:"column",
+    elevation:5,
+    alignItems:'center',
+    justifyContent:'center',
+    padding:10
   },
   containerStyle:{
     padding:12,
@@ -50,5 +56,19 @@ const styles = StyleSheet.create({
     backgroundColor:"white",
     flexDirection:'column'
   },
+  imageStyle:{
+    objectFit:'cover',
+    borderRadius:40
+  },
+  name:{
+    textAlign:'center',
+    color:"black",
+    fontWeight:'bold'
+  },
+  email:{
+    textAlign:'center',
+    color:'blue',
+
+  }
 
 })
